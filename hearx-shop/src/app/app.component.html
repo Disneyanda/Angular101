@@ -1,0 +1,79 @@
+
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<div>
+  <hr>
+ <header >
+   <h1 class="title">Online shopping made Convinient, Just a click away</h1>
+</header>
+
+<div>
+    <div id="products-container">
+       <div *ngFor="let cartProduct of totalCartProduct" style="padding: 20px; width:200px; text-align: center;">
+            <div><div class="image">
+              <img src="{{ cartProduct.product.image}}" alt="Product">
+            </div>
+            <div class="details">
+                <p class="product-name">{{cartProduct.product.name}}</p>
+                <p class="product-price">{{cartProduct.product.price | currency:'R ' }}</p>
+            </div>
+
+            <div id="container">
+              <button id="button" (click)="increaseProductQuantity(cartProduct.product.id)">
+                    Add To Cart
+               </button>
+             <!--  <div *ngIf="actionRequired(i)">
+                <button
+                  style="width:80px; height: 24px; " 
+                  type="button"
+                  pButton
+                  class="ui-button-warning"
+                  (click)="increaseProductQuantity(cartProduct.product.id)">
+                  Add To Cart
+                </button>
+              </div>
+  
+              <div *ngIf="editProductRequired(i))"> 
+                <button
+                  style="width:80px; height: 24px;" 
+                  type="button"
+                  class="text-center"
+                  (click)="decreaseProductQuantity(cartProduct.product.id)"
+                  pButton>
+                </button>
+
+                {{cartProduct.quantity}}
+
+                <button
+                style="width:80px; height: 24px;" 
+                type="button"
+                class="text-center"
+                (click)="increaseProductQuantity(cartProduct.product.id)"
+                pButton>
+                +
+                </button>
+
+               </div>
+  
+              <div *ngIf="!editProductRequired(i) && !actionRequired(i)">
+                  <button
+                    disabled="true"
+                    style="width:80px; height: 24px;" 
+                    type="button"
+                    class="text-center"
+                    pButton>
+                    loading
+                  </button>
+                </div>-->
+            </div>
+    </div>
+</div>
+
+<hr>
+<app-cart></app-cart>
+
+</div>
+

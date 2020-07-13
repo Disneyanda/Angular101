@@ -1,0 +1,65 @@
+<div id="cart-panel">
+  <div id="cart-content">
+   <div id="cart-header">
+          <h1>Products Added To Cart</h1>
+   </div>
+
+      <div id="cart-items">
+          <table>
+              <tbody>
+                  <tr>
+                      <th class="text-left">ProductName</th>
+                      <th class="text-left">Add/Remove</th>
+                      <th class="text-left">Price</th>
+                  </tr>
+                  <tr *ngFor="let cartProduct of cart.totalCartProduct" class="cart-item">
+                      <ng-container *ngIf="cartProduct.quantity > 0">
+                          <td class="text-center">
+                              <p class="cart-item-name">{{cartProduct.product.name}}</p>
+                          </td>
+
+                          <td class="text-center">
+                            <!--<button mat-icon-button
+                            (click)="increaseProductQuantity(cartProduct.product.id)">
+                                <mat-icon svgIcon="account"></mat-icon>
+                            </button>
+                       
+                            {{cartProduct.quantity}}
+
+                            <button mat-icon-button
+                            (click)="decreaseProductQuantity(cartProduct.product.id)">
+                                  <mat-icon svgIcon="book"></mat-icon>
+                             </button>  --> 
+                            <div><button id="cart-access-button" (click)="increaseProductQuantity(cartProduct.product.id)">
+                                +
+                            </button>
+
+                            {{cartProduct.quantity}}
+
+                            <button id="cart-access-button" (click)="decreaseProductQuantity(cartProduct.product.id)">
+                            -
+                            </button></div> 
+                          </td>
+
+                          <td class="text-center">
+                            {{cartProduct.subtotalPrice | currency:'R '}}
+                          </td>
+                      </ng-container>
+                  </tr>
+
+                  <tr>
+                      <td><b>Total</b></td>
+                      <td>
+                          {{cart.totalProducts}}
+                      </td>
+                      <td class="total-price">
+                          {{cart.totalPrice | currency:'R ' }}
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+     
+  </div>
+</div>
